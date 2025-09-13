@@ -1,0 +1,10 @@
+{
+  "name": "HackMIT JSON",
+  "description": "HackMIT Project 2025",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "HackMIT.html",
+    "default_icon": "HackMIT.png"
+  }
+}
