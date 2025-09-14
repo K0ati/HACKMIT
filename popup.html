@@ -2,19 +2,45 @@
 <html>
 <head>
   <style>
-    body { font-family: sans-serif; padding: 10px; width: 200px; }
-
-    select, button { width: 100%; padding: 8px; margin-top: 5px; }
+    body { font-family: sans-serif; padding: 10px; width: 260px; }
+    label { display: block; margin-top: 8px; font-size: 12px; }
+    select, button, input[type="range"] { width: 100%; }
+    .row { display: flex; align-items: center; gap: 8px; }
+    .row output { width: 48px; text-align: right; font-variant-numeric: tabular-nums; }
+    .hint { font-size: 11px; color: #666; margin-top: 2px; }
   </style>
 </head>
 <body>
-  <h3>Choose Font</h3>
+  <h3>Reading Settings</h3>
+
+  <label for="fontSelector">Font</label>
   <select id="fontSelector">
     <option value="comic sans ms">Comic Sans</option>
     <option value="arial">Arial</option>
     <option value="normal">Normal</option>
   </select>
-  <button id="apply">Apply</button>
+
+  <label for="letterSpacing">Letter Spacing (px)</label>
+  <div class="row">
+    <input id="letterSpacing" type="range" min="0" max="0.75" step="0.01">
+    <output id="letterOut"></output>
+  </div>
+
+  <label for="wordSpacing">Word Spacing (px)</label>
+  <div class="row">
+    <input id="wordSpacing" type="range" min="0" max="1" step="0.01">
+    <output id="wordOut"></output>
+  </div>
+
+  <label for="lineHeight">Line Height (px)</label>
+  <div class="row">
+    <input id="lineHeight" type="range" min="1.0" max="3.0" step="0.05">
+    <output id="lineOut"></output>
+  </div>
+
+  <button id="apply" style="margin-top:10px">Apply</button>
+  <button id="reset" style="margin-top:6px">Reset to Defaults</button>
+
   <script src="popup.js"></script>
 </body>
 </html>

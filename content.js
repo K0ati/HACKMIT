@@ -1,36 +1,60 @@
-function applyFont(font) {
-  removeFont(); // clear old style first
-
-  if (font === "normal") return;
-
-  const style = document.createElement("style");
-  style.id = "font-chooser-style";
-    style.innerHTML = `
-      body, p, span, div, a, li, td, th, h1, h2, h3, h4, h5, h6 {
-        font-family: "${font}" !important;
-        line-height: 2.4em !important;
-        word-spacing: 0.25em !important;
-        letter-spacing: 0.2em !important;
-      }
-
-      /* Prevent changing icon fonts */
-      [class*="icon"], i {
-        font-family: initial !important;
-        letter-spacing: initial !important;
-        word-spacing: initial !important;
-      }
-    `;
-  document.head.appendChild(style);
-}
-
-function removeFont() {
+// content.js
+function removeStyle() {
   const style = document.getElementById("font-chooser-style");
   if (style) style.remove();
 }
 
+function renderStyle({ font, letterSpacingEm, wordSpacingEm, lineHeightEm }) {
+  const safeFont = font && font.toLowerCase() !== "normal" ? font : null;
+
+  // Build CSS with current settings
+  const css = `
+    body, p, span, div, a, li, td, th, h1, h2, h3, h4, h5, h6 {
+      ${safeFont ? `font-family: "${safeFont}" !important;` : ""}
+      ${lineHeightEm != null ? `line-height: ${lineHeightEm}em !important;` : ""}
+      ${wordSpacingEm != null ? `word-spacing: ${wordSpacingEm}em !important;` : ""}
+      ${letterSpacingEm != null ? `letter-spacing: ${letterSpacingEm}em !important;` : ""}
+    }
+
+    /* Prevent changing icon fonts */
+    [class*="icon"], i {
+      font-family: initial !important;
+      letter-spacing: initial !important;
+      word-spacing: initial !important;
+    }
+  `;
+
+  let style = document.getElementById("font-chooser-style");
+  if (!style) {
+    style = document.createElement("style");
+    style.id = "font-chooser-style";
+    document.head.appendChild(style);
+  }
+  style.textContent = css;
+}
+
+function applyStyle(payload) {
+  // Normalize numbers; allow nulls to skip changing that property
+  const toNum = (v) => (v === undefined || v === null || v === "" ? null : Number(v));
+  const letterSpacingEm = toNum(payload.letterSpacingEm);
+  const wordSpacingEm = toNum(payload.wordSpacingEm);
+  const lineHeightEm = payload.lineHeightEm != null ? toNum(payload.lineHeightEm) : null;
+
+  renderStyle({
+    font: payload.font,
+    letterSpacingEm,
+    wordSpacingEm,
+    lineHeightEm,
+  });
+}
+
 chrome.runtime.onMessage.addListener((msg) => {
-  if (msg.action === "setFont") {
-    applyFont(msg.font);
+  if (msg.action === "setStyle") {
+    applyStyle(msg);
+    if (msg.scroll) window.scrollTo(msg.scroll.x, msg.scroll.y);
+  }
+  if (msg.action === "removeStyle") {
+    removeStyle();
     if (msg.scroll) window.scrollTo(msg.scroll.x, msg.scroll.y);
   }
 });
