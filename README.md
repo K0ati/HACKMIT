@@ -1,13 +1,14 @@
 ## Reading Assistance Extension
 
-Reading Assistance is a browser extension designed to make reading easier for people with dyslexia. It adjusts font styles, spacing, and provides text-to-speech functionality to improve reading comfort and comprehension.
+Reading Assistance is a browser extension designed to make reading easier for people with dyslexia. It adjusts font styles, spacing, provides text-to-speech and simpler synonyms of highlighted words to improve reading comfort and comprehension.
 
 ## Features
 
 - Dyslexia-Friendly Font: Changes website text to Comic Sans, which is easier for dyslexic readers to process.  
 - Optimized Spacing: Adjusts letter and line spacing to reduce visual crowding and make text easier to follow.  
-- Text-to-Speech: Converts highlighted text into speech, allowing users to listen to content instead of reading it.  
-- Customizable: Users can enable or disable features according to their needs.  
+- Text-to-Speech: Converts highlighted text into speech, allowing users to listen to content instead of reading it.
+- Simple synonyms: Displays simpler synonyms of highlighted words making comprehension easier 
+- Customizable: Users can enable features according to their needs.  
 
 ## How Dyslexia Affects People
 
@@ -23,18 +24,19 @@ Dyslexia does not affect intelligence, and many people with dyslexia develop uni
 
 ## Prevalence
 
-Approximately 10–15% of the population** has some form of dyslexia, making it one of the most common learning differences worldwide.
+Approximately 10–15% of the population has some form of dyslexia, making it one of the most common learning differences worldwide.
 
 ## How to Use
 
-1. Install the Reading Assistance extension in your browser.  
+1. upload the Reading Assistance extension in your browser.  
 2. Click the extension icon to enable dyslexia-friendly font and spacing.  
-3. Highlight any text and click the “Listen” button to activate text-to-speech.  
-4. Customize settings in the extension menu as needed.
+3. Highlight any text and click the “Listen” button to activate text-to-speech.
+4. Highlight any word to display its synonyms
+5. Customize settings in the extension menu as needed.
 
 ## Why Reading Assistance?
 
-Reading online content can be exhausting for people with dyslexia due to font styles, spacing, and complex layouts. Reading Assistance removes these barriers, making the web more accessible, inclusive, and user-friendly.
+Reading online content can be exhausting for people with dyslexia due to font styles, spacing, and complex layouts. Reading Assistance removes these barriers, making the web more accessible, inclusive, and user-friendly. Extention is useful especailly for children since early intervention can have a huge impact on long term literacy and comprehension.
 
 Made by Sophia, Ansia, Shriyln, and Alex!
 
