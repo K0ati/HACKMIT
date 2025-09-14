@@ -31,7 +31,7 @@ Approximately 10–15% of the population has some form of dyslexia, making it on
 
 # How to Use
 
-1. Install the Reading Assistance extension in your browser.  
+1. Upload the Reading Assistance extension in your browser.  
 2. Click the extension icon to enable dyslexia-friendly font and spacing.  
 3. Highlight any text and click the “Listen” button to activate text-to-speech.  
 4. Highlight a single word to view its synonyms.  
