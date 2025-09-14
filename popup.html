@@ -173,10 +173,11 @@
       <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
         <g fill="none" stroke="none">
           <path d="M12 24v-9c0-3 1-6 3-8" fill="none" stroke="#35b089" stroke-width="2" stroke-linecap="round"/>
-          <path d="M8 24v-6c0-2 0-4 2-6" fill="none" stroke="#35b089" stroke-width="2" stroke-linecap="round"/>
-          <path d="M16 24v-5c0-2 1-3 3-5" fill="none" stroke="#35b089" stroke-width="2" stroke-linecap="round"/>
-          <ellipse cx="10" cy="8" rx="3" ry="5" fill="#35b089"/>
-          <ellipse cx="18" cy="9" rx="3" ry="5" fill="#35b089"/>
+          <path d="M8 24v-6c0-2 0-0 -4-4" fill="none" stroke="#35b089" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 24v-5c0-2 1-0 5-3" fill="none" stroke="#35b089" stroke-width="2" stroke-linecap="round"/>
+          <ellipse cx="1" cy="13" rx="2" ry="5" fill="#35b089" style="transform: rotate(-30deg);"/>
+          <ellipse cx="13" cy="7" rx="3" ry="5" fill="#35b089"/>
+          <ellipse cx="22" cy="-3" rx="2" ry="5" fill="#35b089" style="transform: rotate(45deg);"/>
         </g>
       </svg>
       <div class="title">
@@ -241,12 +242,6 @@
     };
     ranges.forEach(el => { setFill(el); el.addEventListener('input', () => setFill(el)); });
   </script>
-
-  <body style="font-family:sans-serif;padding:10px;width:180px">
-    <button id="activate">Set Active Icon</button>
-    <button id="reset" style="margin-top:6px">Reset Icon</button>
-    <script src="popup.js"></script>
-  </body>
 
 </body>
 </html>
