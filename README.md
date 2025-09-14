@@ -25,7 +25,7 @@ Dyslexia does not affect intelligence, and many people with dyslexia develop uni
 
 ## Prevalence
 
-Approximately 10–15% of the population** has some form of dyslexia, making it one of the most common learning differences worldwide.
+Approximately 10–15% of the population has some form of dyslexia, making it one of the most common learning differences worldwide.
 
 ## How to Use
 
