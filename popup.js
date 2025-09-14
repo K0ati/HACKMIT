@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Defaults (feel free to tweak)
   const DEFAULTS = {
-    font: "comic sans ms",
+    font: "normal",
     letterSpacingEm: 0.05,
     wordSpacingEm: 0.25,
     lineHeightEm: 1.6,
