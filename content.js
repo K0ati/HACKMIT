@@ -1,11 +1,37 @@
-document.addEventListener('mouseup', () => {
-    const selectedText = window.getSelection().toString().trim();
-    if (selectedText) {
-        // Use the Web Speech API for text-to-speech
-        const utterance = new SpeechSynthesisUtterance(selectedText);
-        speechSynthesis.speak(utterance);
-    }
-});
+let lastSelection = "";
+let speaking = false;
+
+function stopSpeech() {
+  window.speechSynthesis.cancel();
+  speaking = false;
+}
+
+function speakText(text) {
+  stopSpeech();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.rate = 1.0;
+  utterance.pitch = 1.0;
+  utterance.onend = () => { speaking = false; };
+  window.speechSynthesis.speak(utterance);
+  speaking = true;
+}
+
+function handleSelectionChange() {
+  const selection = window.getSelection().toString().trim();
+
+  if (selection && selection !== lastSelection) {
+    // New selection → speak it
+    speakText(selection);
+    lastSelection = selection;
+  } else if (!selection && speaking) {
+    // Selection cleared → stop
+    stopSpeech();
+    lastSelection = "";
+  }
+}
+
+// Fires whenever selection changes (highlight added, removed, or altered)
+document.addEventListener("selectionchange", handleSelectionChange);
 
 
 function applyFont(font) {
