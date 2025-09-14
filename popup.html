@@ -1,55 +1,252 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reed – Reading Settings</title>
   <style>
-    body { font-family: sans-serif; padding: 10px; width: 260px; }
-    label { display: block; margin-top: 8px; font-size: 12px; }
-    select, button, input[type="range"] { width: 100%; }
-    .row { display: flex; align-items: center; gap: 8px; }
-    .row output { width: 48px; text-align: right; font-variant-numeric: tabular-nums; }
-    .hint { font-size: 11px; color: #666; margin-top: 2px; }
+    :root{
+      /* Palette derived from your logo */
+      --bg: #0f2e3a;          /* deep blue background */
+      --panel: #153847;       /* slightly lighter card */
+      --accent: #35b089;      /* reed green */
+      --text: #f2f7f9;        /* near white */
+      --muted: #9fb0ba;       /* soft gray */
+      --border: #1d4758;      /* panel border */
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 13px/1.4 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      width: 320px;           /* comfortable popup width */
+      min-height: 360px;
+    }
+
+    .wrap {
+      padding: 14px;
+    }
+
+    /* Brand header */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .brand svg { display:block }
+    .brand .title {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+    .brand .title .name {
+      font-size: 18px;
+      font-weight: 650;
+      letter-spacing: 0.2px;
+    }
+    .brand .title .tag {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 2px;
+    }
+
+    /* Card */
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,.25);
+      padding: 12px;
+    }
+
+    .section + .section { margin-top: 12px; }
+
+    label {
+      display:block;
+      margin: 8px 0 6px;
+      color: var(--text);
+      font-size: 12px;
+    }
+
+    select, button, input[type="range"] {
+      width: 100%;
+    }
+
+    select {
+      appearance: none;
+      background: #0f2e3a;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      outline: none;
+    }
+    select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(53,176,137,.25); }
+
+    .row {
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .row output {
+      width: 52px;
+      text-align: right;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .hint {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    /* Range styling */
+    input[type="range"]{
+      -webkit-appearance: none;
+      appearance: none;
+      height: 6px;
+      background: linear-gradient(to right, var(--accent), var(--accent)) left/0% 100% no-repeat, #0f2e3a;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-runnable-track{ height:6px; background: transparent; }
+    input[type="range"]::-webkit-slider-thumb{
+      -webkit-appearance: none;
+      appearance: none;
+      height: 16px; width: 16px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 0;
+      margin-top: -5px;
+      box-shadow: 0 0 0 2px rgba(0,0,0,.15);
+    }
+    input[type="range"]::-moz-range-track{ height:6px; background: transparent; }
+    input[type="range"]::-moz-range-progress{ background: var(--accent); height:6px; border-radius:999px; }
+    input[type="range"]::-moz-range-thumb{
+      height: 16px; width: 16px; border: 0; border-radius: 50%; background: var(--accent);
+    }
+    input[type="range"]:focus { box-shadow: 0 0 0 3px rgba(53,176,137,.25); }
+
+    /* Buttons */
+    .btn {
+      appearance:none;
+      border: 0;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #06231e;
+    }
+    .btn-primary:hover { filter: brightness(1.05); }
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    /* tiny helper to fill track left-of-thumb (WebKit) */
+    input[type="range"].with-fill {
+      background-size: var(--fill, 0%) 100%;
+    }
   </style>
 </head>
 <body>
-  <h3>Reading Settings</h3>
+  <div class="wrap">
+    <div class="brand">
+      <!-- Minimal inline “reed” icon in the same green -->
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true">
+        <g fill="none" stroke="none">
+          <path d="M12 24v-9c0-3 1-6 3-8" fill="none" stroke="#35b089" stroke-width="2" stroke-linecap="round"/>
+          <path d="M8 24v-6c0-2 0-4 2-6" fill="none" stroke="#35b089" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 24v-5c0-2 1-3 3-5" fill="none" stroke="#35b089" stroke-width="2" stroke-linecap="round"/>
+          <ellipse cx="10" cy="8" rx="3" ry="5" fill="#35b089"/>
+          <ellipse cx="18" cy="9" rx="3" ry="5" fill="#35b089"/>
+        </g>
+      </svg>
+      <div class="title">
+        <span class="name">Reed</span>
+        <span class="tag">FOR READING</span>
+      </div>
+    </div>
 
-  <label for="fontSelector">Font</label>
-  <select id="fontSelector">
-    <option value="comic sans ms">Comic Sans</option>
-    <option value="arial">Arial</option>
-    <option value="normal">Normal</option>
-  </select>
+    <div class="card">
+      <div class="section">
+        <label for="fontSelector">Font</label>
+        <select id="fontSelector">
+          <option value="comic sans ms">Comic Sans</option>
+          <option value="arial">Arial</option>
+          <option value="normal">Page Default</option>
+        </select>
+      </div>
 
-  <label for="letterSpacing">Letter Spacing (px)</label>
-  <div class="row">
-    <input id="letterSpacing" type="range" min="0" max="0.75" step="0.01">
-    <output id="letterOut"></output>
+      <div class="section">
+        <label for="letterSpacing">Letter spacing (em)</label>
+        <div class="row">
+          <input id="letterSpacing" class="with-fill" type="range" min="0" max="0.5" step="0.01" />
+          <output id="letterOut"></output>
+        </div>
+        <div class="hint">Try 0.02–0.12 for subtle improvements.</div>
+      </div>
+
+      <div class="section">
+        <label for="wordSpacing">Word spacing (em)</label>
+        <div class="row">
+          <input id="wordSpacing" class="with-fill" type="range" min="0" max="1" step="0.01" />
+          <output id="wordOut"></output>
+        </div>
+        <div class="hint">0.10–0.40 often reduces visual crowding.</div>
+      </div>
+
+      <div class="section">
+        <label for="lineHeight">Line height (em)</label>
+        <div class="row">
+          <input id="lineHeight" class="with-fill" type="range" min="1.0" max="3.0" step="0.05" />
+          <output id="lineOut"></output>
+        </div>
+        <div class="hint">1.4–1.8 is a common comfortable range.</div>
+      </div>
+
+      <div class="actions">
+        <button id="apply" class="btn btn-primary">Apply</button>
+        <button id="reset" class="btn btn-ghost">Reset</button>
+      </div>
+    </div>
   </div>
-
-  <label for="wordSpacing">Word Spacing (px)</label>
-  <div class="row">
-    <input id="wordSpacing" type="range" min="0" max="1" step="0.01">
-    <output id="wordOut"></output>
-  </div>
-
-  <label for="lineHeight">Line Height (px)</label>
-  <div class="row">
-    <input id="lineHeight" type="range" min="1.0" max="3.0" step="0.05">
-    <output id="lineOut"></output>
-  </div>
-
-  <button id="apply" style="margin-top:10px">Apply</button>
-  <button id="reset" style="margin-top:6px">Reset to Defaults</button>
 
   <script src="popup.js"></script>
-
+  <script>
+    // Fill the left side of range tracks (WebKit) to match accent color.
+    // Not required for functionality; purely aesthetic.
+    const ranges = document.querySelectorAll('input[type="range"].with-fill');
+    const setFill = (el) => {
+      const min = Number(el.min), max = Number(el.max), val = Number(el.value);
+      const pct = ((val - min) / (max - min)) * 100;
+      el.style.setProperty('--fill', pct + '%');
+    };
+    ranges.forEach(el => { setFill(el); el.addEventListener('input', () => setFill(el)); });
+  </script>
 
   <body style="font-family:sans-serif;padding:10px;width:180px">
     <button id="activate">Set Active Icon</button>
     <button id="reset" style="margin-top:6px">Reset Icon</button>
     <script src="popup.js"></script>
   </body>
-
 
 </body>
 </html>

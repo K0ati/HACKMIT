@@ -62,16 +62,13 @@ chrome.runtime.onMessage.addListener((msg) => {
 // Fires whenever selection changes (highlight added, removed, or altered)
 document.addEventListener("selectionchange", handleSelectionChange);
 
-
 let lastSelection = "";
 let speaking = false;
-
 
 function stopSpeech() {
  window.speechSynthesis.cancel();
  speaking = false;
 }
-
 
 function speakText(text) {
  stopSpeech();
@@ -83,13 +80,9 @@ function speakText(text) {
  speaking = true;
 }
 
-
 function handleSelectionChange() {
  const selection = window.getSelection().toString().trim();
-
-
-
-
+ 
  if (selection && selection !== lastSelection) {
    // New selection → speak it
    speakText(selection);

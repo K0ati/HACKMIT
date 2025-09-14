@@ -1,12 +1,12 @@
 {
   "manifest_version": 3,
-  "name": "EasyRead",
-  "version": "1.0",
-  "description": "Switch site fonts to Comic Sans for easier reading",
+  "name": "Reed",
+  "version": "2.5",
+  "description": "Finalizing Pushes",
   "icons": {
     "16": "icons/icon16.png"
-
   },
+  "permissions": ["scripting", "activeTab", "storage"], 
   "action": {
     "default_icon": {
       "16": "icons/icon16.png"
@@ -14,6 +14,12 @@
     },
     "default_popup": "popup.html"
   },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
   "background": {
     "service_worker": "background.js"
   },
