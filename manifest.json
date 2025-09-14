@@ -3,6 +3,10 @@
   "description": "HackMIT Project 2025",
   "version": "1.0",
   "manifest_version": 3,
+  "permissions": ["activeTab", "scripting", "contextMenus"],
+  "background": {
+  "service_worker": "HackMIT.js"
+},
   "action": {
     "default_popup": "HackMIT.html",
     "default_icon": "HackMIT.png"
