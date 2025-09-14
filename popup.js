@@ -92,3 +92,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     await applyCurrent();
   });
 });
+
+document.getElementById("activate").addEventListener("click", () => {
+  chrome.runtime.sendMessage({ action: "setActiveIcon" }, res => {
+    if (res && res.ok) window.close();
+  });
+});
+
+document.getElementById("reset").addEventListener("click", () => {
+  chrome.runtime.sendMessage({ action: "setDefaultIcon" }, res => {
+    if (res && res.ok) window.close();
+  });
+});
