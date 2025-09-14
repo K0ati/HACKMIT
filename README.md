@@ -1,7 +1,7 @@
 # Reading Assistance Extension
 Reading Assistance is a browser extension designed to make reading easier for people with dyslexia. It adjusts font styles, spacing, and provides text-to-speech functionality to improve reading comfort and comprehension. Made by Sophia, Ansia, Shriyln, and Alex!
 
----
+
 
 # Features
 
@@ -11,7 +11,7 @@ Reading Assistance is a browser extension designed to make reading easier for pe
 - Synonyms Lookup: When you highlight a word, Reading Assistance shows its synonyms to help improve comprehension and vocabulary.  
 - Customizable: Users can enable or disable features according to their needs.  
 
----
+
 
 # How Dyslexia Affects People
 
@@ -25,13 +25,13 @@ Dyslexia is a common learning difference that primarily affects reading, writing
 
 > Dyslexia does not affect intelligence, and many people with dyslexia develop unique problem-solving skills and creativity.
 
----
+
 
 # Prevalence
 
 Approximately 10–15% of the population has some form of dyslexia, making it one of the most common learning differences worldwide.
 
----
+
 
 # How to Use
 
