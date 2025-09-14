@@ -7,7 +7,7 @@ function applyFont(font) {
   style.id = "font-chooser-style";
     style.innerHTML = `
       body, p, span, div, a, li, td, th, h1, h2, h3, h4, h5, h6 {
-        font-family: "Comic Sans MS", cursive, sans-serif !important;
+        font-family: "${font}" !important;
         line-height: 2.4em !important;
         word-spacing: 0.25em !important;
         letter-spacing: 0.2em !important;
