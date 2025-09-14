@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
+
   let selector = document.getElementById("fontSelector");
   let button = document.getElementById("apply");
 
@@ -15,6 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       target: { tabId: tab.id },
       func: () => ({ x: window.scrollX, y: window.scrollY })
     });
+
 
     // Inject script & send font choice
     chrome.scripting.executeScript({

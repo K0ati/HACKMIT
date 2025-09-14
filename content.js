@@ -5,12 +5,21 @@ function applyFont(font) {
 
   const style = document.createElement("style");
   style.id = "font-chooser-style";
-  style.innerHTML = `
-    *:not([class*="icon"]):not(i) {
-      font-family: "${font}" !important;
-      line-height: 1.4em !important;
-    }
-  `;
+    style.innerHTML = `
+      body, p, span, div, a, li, td, th, h1, h2, h3, h4, h5, h6 {
+        font-family: "${font}" !important;
+        line-height: 2.4em !important;
+        word-spacing: 0.25em !important;
+        letter-spacing: 0.2em !important;
+      }
+
+      /* Prevent changing icon fonts */
+      [class*="icon"], i {
+        font-family: initial !important;
+        letter-spacing: initial !important;
+        word-spacing: initial !important;
+      }
+    `;
   document.head.appendChild(style);
 }
 

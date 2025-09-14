@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Font Chooser",
-  "version": "1.3",
-  "description": "Switch between Comic Sans, Arial, or Normal fonts.",
+  "name": "HackMIT Dyslexia Curer",
+  "version": "1.1",
+  "description": "Toggle Comic Sans on any website.",
   "permissions": ["scripting", "activeTab", "storage"],
   "action": {
     "default_popup": "popup.html"
