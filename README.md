@@ -1,8 +1,8 @@
-Hi! This is HackMIT 2025. Project team with Sophia, Ansia, Shriyln, and Alex!
+Project team with Sophia, Ansia, Shriyln, and Alex!
 
-## Dyslexic Helper Extension
+## Dyslexia Aid Extension
 
-Dyslexic Helper is a browser extension designed to make reading easier for people with dyslexia. It adjusts font styles, spacing, and provides text-to-speech functionality to improve reading comfort and comprehension.
+Dyslexic Aid is a browser extension designed to make reading easier for people with dyslexia. It adjusts font styles, spacing, and provides text-to-speech functionality to improve reading comfort and comprehension.
 
 ## Features
 
@@ -29,12 +29,12 @@ Approximately 10–15% of the population** has some form of dyslexia, making it 
 
 ## How to Use
 
-1. Install the Dyslexic Helper extension in your browser.  
+1. Install the Dyslexia aid extension in your browser.  
 2. Click the extension icon to enable dyslexia-friendly font and spacing.  
 3. Highlight any text and click the “Listen” button to activate text-to-speech.  
 4. Customize settings in the extension menu as needed.
 
-## Why Dyslexic Helper?
+## Why Dyslexia aid?
 
-Reading online content can be exhausting for people with dyslexia due to font styles, spacing, and complex layouts. Dyslexic Helper removes these barriers, making the web more accessible, inclusive, and user-friendly.
+Reading online content can be exhausting for people with dyslexia due to font styles, spacing, and complex layouts. Dyslexia aid removes these barriers, making the web more accessible, inclusive, and user-friendly.
 
