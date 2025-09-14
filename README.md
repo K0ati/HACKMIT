@@ -1,6 +1,5 @@
 ## Reading Assistance Extension
-Made by: Sophia, Ansia, Shriyln, and Alex!
-Reading Assistance is a browser extension designed to make reading easier for people with dyslexia. It adjusts font styles, spacing, and provides text-to-speech functionality to improve reading comfort and comprehension.
+Reading Assistance is a browser extension designed to make reading easier for people with dyslexia. It adjusts font styles, spacing, and provides text-to-speech functionality to improve reading comfort and comprehension. Made by Sophia, Ansia, Shriyln, and Alex!
 
 ---
 
