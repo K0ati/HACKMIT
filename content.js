@@ -74,7 +74,7 @@ function speakText(text) {
  stopSpeech();
  const utterance = new SpeechSynthesisUtterance(text);
  utterance.rate = 1.0;
- utterance.pitch = 1.5;
+ utterance.pitch = 1.0;
  utterance.onend = () => { speaking = false; };
  window.speechSynthesis.speak(utterance);
  speaking = true;
@@ -82,7 +82,7 @@ function speakText(text) {
 
 function handleSelectionChange() {
  const selection = window.getSelection().toString().trim();
-
+ 
  if (selection && selection !== lastSelection) {
    // New selection → speak it
    speakText(selection);

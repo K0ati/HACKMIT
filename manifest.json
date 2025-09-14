@@ -1,10 +1,17 @@
 {
   "manifest_version": 3,
-  "name": "HackMIT Dyslexia Curer",
-  "version": "1.4",
-  "description": "TS will give you dyslexia",
+  "name": "Reed",
+  "version": "2.5",
+  "description": "Finalizing Pushes",
+  "icons": {
+    "16": "icons/icon16.png"
+  },
   "permissions": ["scripting", "activeTab", "storage"], 
   "action": {
+    "default_icon": {
+      "16": "icons/icon16.png"
+
+    },
     "default_popup": "popup.html"
   },
   "content_scripts": [
@@ -13,4 +20,8 @@
       "js": ["content.js"]
     }
   ]
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["activeTab", "storage", "scripting"]
 }
