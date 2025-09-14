@@ -7,13 +7,15 @@
   "background": {
     "service_worker": "background.js"
   },
+  
+  "action": {
+    "default_title": "Synonym Reader"
+    "default_popup": "popup.html"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"]
     }
-  ],
-  "action": {
-    "default_title": "Synonym Reader"
-  }
+  ]
 }
